@@ -9,7 +9,7 @@
 
 library(shiny)
 
-# Define UI for application that draws a histogram
+# Define UI for application that takes user information and output in real time
 ui <- fluidPage(
     # title of the app
     titlePanel("Let's see how textInput widget work in R shiny!"),
@@ -32,7 +32,7 @@ ui <- fluidPage(
     )
 )
 
-# Define server logic required to draw a histogram
+# Define server logic required to render user information
 server <- function(input, output) {
   output$myname <- renderText(
     paste(input$firstName, input$lastName)
