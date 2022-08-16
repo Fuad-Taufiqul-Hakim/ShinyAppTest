@@ -19,12 +19,15 @@ ui <- fluidPage(
       textInput("firstName", "Enter your First Name: ", ""), # user input - First Name
       textInput("lastName", "Enter your Last Name: ", ""), # user input - Last Name
       textInput("age", "Enter your age: ", ""), # user input - Age
+      radioButtons("gender", "Select the gender: ", list("Male", "Female", "Other"), "") # user input - Gender as radio button
       ),
       mainPanel(("Personal Information"),
                 tags$h2("Name: "),
                 textOutput("myname"), # output - Full Name
                 tags$h2("Age: "),
-                textOutput("myage") # output - Age
+                textOutput("myage"), # output - Age
+                tags$h2("Gender: "),
+                textOutput("mygender") # Output - Gender
                 )
     )
 )
@@ -36,6 +39,9 @@ server <- function(input, output) {
   ) 
   output$myage <- renderText(
     input$age
+  )
+  output$mygender <- renderText(
+    input$gender
   )
 }
 
